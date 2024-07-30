@@ -1,4 +1,4 @@
-package dev.mahathir.kafkaspringboot.kafka;
+package dev.mahathir.kafkaspringboot.kafkaSevice;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.slf4j.Logger;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class kafkaConsumer {
     private static final Logger LOGGER = LoggerFactory.getLogger(kafkaConsumer.class);
-    @KafkaListener(topics = "specialTopic", groupId = "myGroup")
+    @KafkaListener(topics = "${spring.kafka.topic.name}", groupId = "${spring.kafka.consumer.group-id}")
     public void consume(String message) {
         LOGGER.info("Message received -> " + message);
     }

@@ -1,7 +1,6 @@
 package dev.mahathir.kafkaspringboot.controller;
 
-import dev.mahathir.kafkaspringboot.kafka.KafkaProducer;
-import org.springframework.beans.factory.annotation.Autowired;
+import dev.mahathir.kafkaspringboot.kafkaSevice.KafkaProducer;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,4 +24,6 @@ public class MessageController {
         kafkaProducer.sendMessage(message);
         return ResponseEntity.ok("Message sent to topic.");
     }
+
+
 }
